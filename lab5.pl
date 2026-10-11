@@ -3,7 +3,6 @@ male(clancy).
 male(herb).
 male(homer).
 male(bart).
-
 female(mona).
 female(jackie).
 female(marge).
@@ -12,7 +11,6 @@ female(selma).
 female(lisa).
 female(maggie).
 female(ling).
-
 parent(abraham, herb).
 parent(mona, herb).
 parent(abraham, homer).
@@ -30,6 +28,7 @@ parent(marge, lisa).
 parent(homer, maggie).
 parent(marge, maggie).
 parent(selma, ling).
+
 
 father(X, Y) :- male(X), parent(X, Y).
 
@@ -51,5 +50,7 @@ uncle(X, Y) :- brother(X, P), parent(P, Y).
 
 cousin(X, Y) :- parent(P1, X), parent(P2, Y), (brother(P1, P2) ; sister(P1, P2)).
 
+
 ancestor(X, Y) :- parent(X, Y).
+
 ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
